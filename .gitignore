@@ -22,6 +22,7 @@
 .idea
 /client/.idea/
 client/debug.log
+debug.log
 
 npm-debug.log*
 yarn-debug.log*

@@ -6,12 +6,12 @@ import {createStructuredSelector} from "reselect";
 
 import {HomePage} from './pages/homepage/homepage';
 import ShopPage from './pages/shop/shop';
-import SigninSignup from './pages/signin-signup/signin-signup';
+import SignInSignUpPage from './pages/signin-signup/signin-signup';
 import CheckoutPage from './pages/checkout/checkout';
 import Header from './components/header/header';
 import {checkUserSession} from './redux/user/user.actions';
 
-import './App.css';
+import {GlobalStyle} from "./global.styles";
 
 const App = ({checkUserSession, currentUser}) => {
 	useEffect(() => {
@@ -20,6 +20,7 @@ const App = ({checkUserSession, currentUser}) => {
 
 	return (
 		<div>
+			<GlobalStyle/>
 			<Header/>
 			<Switch>
 				<Route exact path='/' component={HomePage}/>
@@ -27,7 +28,7 @@ const App = ({checkUserSession, currentUser}) => {
 				<Route exact path='/checkout' component={CheckoutPage}/>
 				<Route
 					exact path='/signin'
-					render={() => currentUser ? (<Redirect to='/'/>) : (<SigninSignup/>)}/>
+					render={() => currentUser ? (<Redirect to='/'/>) : (<SignInSignUpPage/>)}/>
 			</Switch>
 		</div>
 	);
